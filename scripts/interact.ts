@@ -1,5 +1,5 @@
 import * as dotenv  from 'dotenv';
-import { getContracts } from './utils/setup';
+import { getContracts, txConfig } from './utils/setup';
 import { BigNumber } from 'ethers';
 
 dotenv.config();
@@ -10,8 +10,8 @@ const main = async () => {
 
   const contracts = getContracts();
 
-  const balance = await contracts.erc20.balanceOf('0x00206a47F227E8518b3E80AD0794537223538b2E');
-  console.log(balance.div(BigNumber.from(10).pow(18)).toString());
+  const tx = await contracts.erc20Lock.crossChainConvertERC20(BigNumber.from(1), "0x", txConfig);
+  console.log(await tx.wait());
 
 };
 

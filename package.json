@@ -1,5 +1,5 @@
 {
-  "name": "multisig-upgradable-proxy",
+  "name": "erc20-convertion-lock-contract",
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
@@ -12,6 +12,10 @@
     "deploy:hardhat": "hardhat deploy --network hardhat --tags",
     "deploy:saakuruTestnet": "hardhat deploy --network saakuruTestnet --tags",
     "deploy:saakuruMainnet": "hardhat deploy --network saakuruMainnet --tags",
+    "deploy:harmonyTestnet": "hardhat deploy --network harmonyTestnet --tags",
+    "deploy:harmonyMainnet": "hardhat deploy --network harmonyMainnet --tags",
+    "deploy:ethereumTestnet": "hardhat deploy --network ethereumTestnet --tags",
+    "deploy:ethereumMainnet": "hardhat deploy --network ethereumMainnet --tags",
     "interact": "ts-node scripts/interact.ts",
     "generate:wallet": "ts-node scripts/generateWallet.ts"
   },

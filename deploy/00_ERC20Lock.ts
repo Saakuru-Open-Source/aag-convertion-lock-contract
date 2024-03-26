@@ -1,20 +1,23 @@
 import { HardhatRuntimeEnvironment } from 'hardhat/types';
 import { DeployFunction } from 'hardhat-deploy/types';
+import config from '../config';
 
 const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  await deploy('TokenERC721', {
+  await deploy('ERC20Lock', {
     from: deployer,
-    args: [],
+    args: [
+      config.TOKEN_ADDRESS
+    ],
     log: true,
     skipIfAlreadyDeployed: true,
-    contract: 'TokenERC721',
+    contract: 'ERC20Lock',
   });
 };
 
 export default func;
-func.id = 'TokenERC721';
-func.tags = ['hardhat', 'erc721'];
+func.id = 'TokenERC20';
+func.tags = ['hardhat', 'erc20'];
 func.dependencies = [];

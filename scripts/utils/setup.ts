@@ -1,6 +1,6 @@
 import * as ethers from 'ethers';
 import * as dotenv  from 'dotenv';
-import { networks } from '../../helpers/networks'
+import { networks } from '../../helpers/networks';
 import { ERC20Lock } from '../../dist/types';
 
 dotenv.config();
@@ -10,7 +10,7 @@ console.log('Running... ', process.env.NETWORK);
 const erc20Lock = require(`../../deployments/${process.env.NETWORK}/ERC20Lock.json`);
 
 export const deployments = {
-  erc20Lock
+  erc20Lock,
 };
 
 const rpcUrl = networks[process.env.NETWORK || ''].url;

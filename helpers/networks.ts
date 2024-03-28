@@ -33,7 +33,6 @@ export const networks = {
     accounts: [`0x${privateKey}`],
     live: true,
     saveDeployments: true,
-    gasPrice: 1000000000, // Example gas price, adjust as needed
   },
   harmonyMainnet: {
     url: 'https://api.harmony.one',
@@ -41,7 +40,6 @@ export const networks = {
     accounts: [`0x${privateKey}`],
     live: true,
     saveDeployments: true,
-    gasPrice: 1000000000, // Example gas price, adjust as needed
   },
   ethereumMainnet: {
     url: `https://mainnet.infura.io/v3/${process.env.INFURA_KEY}`,
@@ -57,4 +55,33 @@ export const networks = {
     live: true,
     saveDeployments: true,
   },
+  baseMainnet: {
+    url: 'https://mainnet.base.org',
+    accounts: [`0x${privateKey}`],
+    chainId: 0x1,
+    live: true,
+    saveDeployments: true,
+  },
+  baseTestnet: {
+    url: 'https://sepolia.base.org',
+    accounts: [`0x${privateKey}`],
+    chainId: 0x2a,
+    live: true,
+    saveDeployments: true,
+  },
+  arbitrumMainnet: {
+    url: 'https://arb1.arbitrum.io/rpc',
+    accounts: [`0x${privateKey}`],
+    chainId: 42161,
+    live: true,
+    saveDeployments: true,
+  },
+  arbitrumTestnet: {
+    url: 'https://sepolia-rollup.arbitrum.io/rpc',
+    accounts: [`0x${privateKey}`],
+    chainId: 421611,
+    live: true,
+    saveDeployments: true,
+  },
+  // add base and arbitrum
 };

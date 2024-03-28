@@ -9,7 +9,7 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   await deploy('ERC20Lock', {
     from: deployer,
     args: [
-      config.TOKEN_ADDRESS
+      config.TOKEN_ADDRESS,
     ],
     log: true,
     skipIfAlreadyDeployed: true,
@@ -18,6 +18,6 @@ const func: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
 };
 
 export default func;
-func.id = 'TokenERC20';
-func.tags = ['hardhat', 'erc20'];
+func.id = 'ERC20Lock';
+func.tags = ['hardhat', 'v1'];
 func.dependencies = [];

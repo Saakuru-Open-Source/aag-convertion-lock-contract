@@ -1,0 +1,119 @@
+{
+  "address": "0x784153B491c25141E95E027BBCb3080712BAFAb8",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "tokenAddress_",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "destinationWallet",
+          "type": "address"
+        }
+      ],
+      "name": "CrossChainConversion",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount_",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "destinationWallet_",
+          "type": "address"
+        }
+      ],
+      "name": "crossChainConvertERC20",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "tokenAddress",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x94653587ef5399f3034ddce7dc5eddaa4cb512cc700e5e2cbe2d81e6dda5298f",
+  "receipt": {
+    "to": null,
+    "from": "0xea54a06ef6218a4fc2f6edF293E73e4a2a2e4C09",
+    "contractAddress": "0x784153B491c25141E95E027BBCb3080712BAFAb8",
+    "transactionIndex": 0,
+    "gasUsed": "181848",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x044e9df3f959a5b4d164b0e3057eac51184e4f01b046216d158df5ab829419ee",
+    "transactionHash": "0x94653587ef5399f3034ddce7dc5eddaa4cb512cc700e5e2cbe2d81e6dda5298f",
+    "logs": [],
+    "blockNumber": 25033717,
+    "cumulativeGasUsed": "181848",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0x8C66D611540D464A009C96B4b5a2e428283217B8"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "dd6803ecb117279ef1b06be77abc41e3",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.2+commit.661d1103\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"tokenAddress_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"destinationWallet\",\"type\":\"address\"}],\"name\":\"CrossChainConversion\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount_\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"destinationWallet_\",\"type\":\"address\"}],\"name\":\"crossChainConvertERC20\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tokenAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/ERC20Lock.sol\":\"ERC20Lock\"},\"evmVersion\":\"berlin\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/ERC20Lock.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.0;\\n\\ninterface IERC20 {\\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\\n    function approve(address spender, uint256 value) external returns (bool);\\n}\\n\\ncontract ERC20Lock {\\n    address public tokenAddress;\\n\\n    event CrossChainConversion(uint256 amount, address indexed destinationWallet);\\n\\n    constructor(address tokenAddress_) {\\n        tokenAddress = tokenAddress_;\\n    }\\n\\n    function crossChainConvertERC20(uint256 amount_, address destinationWallet_) public {\\n        IERC20(tokenAddress).transferFrom(msg.sender, address(this), amount_);\\n        emit CrossChainConversion(amount_, destinationWallet_);\\n    }\\n}\",\"keccak256\":\"0x8813ec4bd440a6c9d849da548a0c53cb123c83ee18086a5e4b327e442bc17977\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5060405161027938038061027983398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610082565b600060208284031215610065578081fd5b81516001600160a01b038116811461007b578182fd5b9392505050565b6101e8806100916000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c806330c405a81461003b5780639d76ea5814610050575b600080fd5b61004e610049366004610178565b61007f565b005b600054610063906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516323b872dd60e01b8152336004820152306024820152604481018490526001600160a01b03909116906323b872dd90606401602060405180830381600087803b1580156100d157600080fd5b505af11580156100e5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101099190610151565b50806001600160a01b03167fc012dac6301cb45fbf121672b32199623e9381f4dbf7c0a646f2e4319c1fa23d8360405161014591815260200190565b60405180910390a25050565b600060208284031215610162578081fd5b81518015158114610171578182fd5b9392505050565b6000806040838503121561018a578081fd5b8235915060208301356001600160a01b03811681146101a7578182fd5b80915050925092905056fea26469706673582212209a61c6e652cfda7d12bef13f8e10a63ce69143c2230565ba0ed00dc6bf206ad664736f6c63430008020033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c806330c405a81461003b5780639d76ea5814610050575b600080fd5b61004e610049366004610178565b61007f565b005b600054610063906001600160a01b031681565b6040516001600160a01b03909116815260200160405180910390f35b6000546040516323b872dd60e01b8152336004820152306024820152604481018490526001600160a01b03909116906323b872dd90606401602060405180830381600087803b1580156100d157600080fd5b505af11580156100e5573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101099190610151565b50806001600160a01b03167fc012dac6301cb45fbf121672b32199623e9381f4dbf7c0a646f2e4319c1fa23d8360405161014591815260200190565b60405180910390a25050565b600060208284031215610162578081fd5b81518015158114610171578182fd5b9392505050565b6000806040838503121561018a578081fd5b8235915060208301356001600160a01b03811681146101a7578182fd5b80915050925092905056fea26469706673582212209a61c6e652cfda7d12bef13f8e10a63ce69143c2230565ba0ed00dc6bf206ad664736f6c63430008020033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 24,
+        "contract": "contracts/ERC20Lock.sol:ERC20Lock",
+        "label": "tokenAddress",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      }
+    }
+  }
+}

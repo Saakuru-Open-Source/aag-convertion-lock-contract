@@ -10,7 +10,7 @@ const main = async () => {
 
   const contracts = getContracts();
 
-  const tx = await contracts.erc20Lock.crossChainConvertERC20(BigNumber.from(1), "0x", txConfig);
+  const tx = await contracts.erc20Lock.crossChainConvertERC20(BigNumber.from(1), '0x', txConfig);
   console.log(await tx.wait());
 
 };

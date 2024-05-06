@@ -14,8 +14,8 @@
     "deploy:saakuruMainnet": "hardhat deploy --network saakuruMainnet --tags",
     "deploy:harmonyTestnet": "hardhat deploy --network harmonyTestnet --tags",
     "deploy:harmonyMainnet": "hardhat deploy --network harmonyMainnet --tags",
-    "deploy:ethereumTestnet": "hardhat deploy --network ethereumTestnet --tags",
     "deploy:ethereumMainnet": "hardhat deploy --network ethereumMainnet --tags",
+    "deploy:baseMainnet": "hardhat deploy --network baseMainnet --tags",
     "interact": "ts-node scripts/interact.ts",
     "generate:wallet": "ts-node scripts/generateWallet.ts"
   },

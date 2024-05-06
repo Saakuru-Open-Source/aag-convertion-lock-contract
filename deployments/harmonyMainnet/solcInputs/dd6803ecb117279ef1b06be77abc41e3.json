@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/ERC20Lock.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ninterface IERC20 {\n    function transferFrom(address from, address to, uint256 value) external returns (bool);\n    function approve(address spender, uint256 value) external returns (bool);\n}\n\ncontract ERC20Lock {\n    address public tokenAddress;\n\n    event CrossChainConversion(uint256 amount, address indexed destinationWallet);\n\n    constructor(address tokenAddress_) {\n        tokenAddress = tokenAddress_;\n    }\n\n    function crossChainConvertERC20(uint256 amount_, address destinationWallet_) public {\n        IERC20(tokenAddress).transferFrom(msg.sender, address(this), amount_);\n        emit CrossChainConversion(amount_, destinationWallet_);\n    }\n}"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "berlin",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
